@@ -1,0 +1,27 @@
+image: node:10.16.3
+
+pipelines:
+  branches:
+    master:
+      - step:
+          script:
+            - export FTP_host=ftp://ftp.clientsite.com
+            - apt-get update && apt-get
+            - apt-get -qq install git-ftp
+            - git ftp init --user $FTP_username --passwd $FTP_password ${FTP_host}
+
+    staging:
+      - step:
+          script:
+            - export FTP_host=ftp://ftp.clientsite.com/staging.clientsite.com
+            - apt-get update
+            - apt-get -qq install git-ftp
+            - git ftp init --user $FTP_username --passwd $FTP_password ${FTP_host}
+
+    dev:
+      - step:
+          script:
+            - export FTP_host=ftp://116.90.49.28/
+            - apt-get update
+            - apt-get -qq install git-ftp
+            - git ftp init --user $FTP_username --passwd $FTP_password ${FTP_host}

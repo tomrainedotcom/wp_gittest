@@ -9,6 +9,10 @@ wp-content/*
 !wp-content/plugins/
 !wp-content/themes/
 
+# keep the config files
+!bitbucket-pipelines.yml
+!.git-ftp-ignore
+
 # ignore these plugins
 wp-content/plugins/hello.php
 
